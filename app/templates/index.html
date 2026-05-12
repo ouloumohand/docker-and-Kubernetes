@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>{{ title }}</title>
+</head>
+<body>
+  <h1 id="title">FastAPI + Playwright Demo</h1>
+
+  <form id="greet-form">
+    <label for="name">Name:</label>
+    <input id="name" name="name" />
+    <button type="submit">Greet</button>
+  </form>
+
+  <p id="greet-result"></p>
+
+  <script>
+    const form = document.getElementById("greet-form");
+    const result = document.getElementById("greet-result");
+
+    form.addEventListener("submit", async (e) => {
+      e.preventDefault();
+      const name = document.getElementById("name").value || "world";
+      const res = await fetch(`/api/greet?name=${encodeURIComponent(name)}`);
+      const data = await res.json();
+      result.textContent = data.message;
+    });
+  </script>
+</body>
+</html>

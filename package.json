@@ -1,0 +1,11 @@
+{
+  "name": "fastapi-playwright-demo",
+  "version": "1.0.0",
+  "private": true,
+  "devDependencies": {
+    "@playwright/test": "^1.49.0"
+  },
+  "scripts": {
+    "test:ui": "playwright test"
+  }
+}
