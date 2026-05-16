@@ -17,6 +17,7 @@ async def greet(name: str = "world"):
 @app.get("/", response_class=HTMLResponse)
 async def index(request: Request):
     return templates.TemplateResponse(
-        "index.html",
-        {"request": request, "title": "FastAPI Demo"},
+        request=request,
+        name="index.html",
+        context={"title": "FastAPI Demo"},
     )
